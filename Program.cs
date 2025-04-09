@@ -10,17 +10,28 @@ namespace ResideoWeather
         [STAThread]
         public static void Main()
         {
-            var services = new ServiceCollection();
-            ConfigureServices(services);
+            try
+            {
+                // Initialize configuration
+                ConfigurationManager.Initialize();
 
-            var serviceProvider = services.BuildServiceProvider();
+                var services = new ServiceCollection();
+                ConfigureServices(services);
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            
-            var resideoWeather = serviceProvider.GetRequiredService<ResideoWeather>();
-            Application.Run(resideoWeather);
+                var serviceProvider = services.BuildServiceProvider();
+
+                // To customize application configuration such as set high DPI settings or default font,
+                // see https://aka.ms/applicationconfiguration.
+                ApplicationConfiguration.Initialize();
+
+                var resideoWeather = serviceProvider.GetRequiredService<ResideoWeather>();
+                Application.Run(resideoWeather);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private static void ConfigureServices(IServiceCollection services)

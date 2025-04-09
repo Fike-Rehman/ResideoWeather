@@ -7,14 +7,7 @@ namespace ResideoWeather
     {
         public async Task<List<ResideoWeatherData>> GetWeatherDataAsync()
         {
-            var weatherDatas = new List<ResideoWeatherData>();
-
-            var remoteWeatherData = new List<string>
-            {
-                "https://s3.amazonaws.com/connectedsavings.com/coding/weather/401024.json",
-                "https://s3.amazonaws.com/connectedsavings.com/coding/weather/746560.json",
-                "https://s3.amazonaws.com/connectedsavings.com/coding/weather/77536.json"
-            };
+            var remoteWeatherData = ConfigurationManager.ImportDataUrls;
 
             var cityWeathers = new List<ResideoWeatherData>();
 
