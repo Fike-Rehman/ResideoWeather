@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using ResideoWeather.Model;
+using System.Xml;
 
 
 namespace ResideoWeather
@@ -50,6 +52,23 @@ namespace ResideoWeather
                 .GroupBy(w => w.ApplicableDate)
                 .Select(g => g.OrderBy(w => w.MinTemp).FirstOrDefault()) // select the first min temp for each date if there is a tie
                 .ToList();
+
+            // before we get the json report, we need to fix the property names:
+
+            var jsonReadyList = filteredCityWeatherData
+                .Where(x => x!= null)
+                .Select(fcwd => new
+                {
+                    applicable_date = fcwd!.ApplicableDate,
+                    min_temp = fcwd.MinTemp,
+                    max_temp = fcwd.MaxTemp,
+                    title = fcwd.City
+                })
+                .ToList();
+
+            var jsonReport = JsonConvert.SerializeObject(jsonReadyList, Newtonsoft.Json.Formatting.Indented);
+
+            rtbJsonReport.Text = jsonReport;
         }
     }
 }
