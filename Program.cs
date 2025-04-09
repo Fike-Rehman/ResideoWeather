@@ -28,7 +28,7 @@ namespace ResideoWeather
             // Add services to the container.
             services.AddSingleton<ResideoWeather>();
             services.AddSingleton<IRemoteDataImporter, RemoteDataImporter>();
-            
+            services.AddSingleton<IResideoWeatherReportFormatter, ResideoWeatherReportFormatter>();
         }
     }
 }

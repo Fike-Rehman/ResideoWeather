@@ -1,9 +1,4 @@
 ﻿using ResideoWeather.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ResideoWeather
 {
@@ -14,6 +9,6 @@ namespace ResideoWeather
         /// </summary>
         /// <param name="urls"></param>
         /// <returns></returns>
-        Task<List<ResideoWeatherData>> GetWeatherDataAsync(List<string> urls);
+        Task<List<ResideoWeatherData>> GetWeatherDataAsync();
     }
 }
