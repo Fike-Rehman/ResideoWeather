@@ -35,7 +35,8 @@
             // 
             // btnGetWeather
             // 
-            btnGetWeather.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGetWeather.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGetWeather.ForeColor = SystemColors.HotTrack;
             btnGetWeather.Location = new Point(205, 662);
             btnGetWeather.Name = "btnGetWeather";
             btnGetWeather.Size = new Size(161, 39);
@@ -56,8 +57,10 @@
             // 
             // lblAppTitle
             // 
+            lblAppTitle.Anchor = AnchorStyles.None;
             lblAppTitle.AutoSize = true;
             lblAppTitle.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAppTitle.ForeColor = SystemColors.HotTrack;
             lblAppTitle.Location = new Point(53, 24);
             lblAppTitle.Name = "lblAppTitle";
             lblAppTitle.Size = new Size(0, 22);

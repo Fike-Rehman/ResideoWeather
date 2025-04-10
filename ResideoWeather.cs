@@ -20,7 +20,10 @@
             rtbJsonViewer.ReadOnly = true;
             rtbJsonViewer.Text = string.Empty;
 
+            
             lblAppTitle.Text = "Resideo Weather Report 🌞 ☁️ 🌧️ ❄️🌩️";
+            lblAppTitle.Anchor = AnchorStyles.None;
+            lblAppTitle.Left = (ClientSize.Width - lblAppTitle.Width) / 2;
         }
 
         private async void btnGetWeather_Click(object sender, EventArgs e)
